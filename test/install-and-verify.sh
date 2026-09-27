@@ -71,8 +71,24 @@ done
 [ "$hstat" = healthy ] && ok "容器 healthcheck = healthy" || bad "容器 healthcheck = ${hstat:-unknown}"
 uid=$("$DOCKER" exec "$APPID" id -u 2>/dev/null)
 [ "$uid" = "1000" ] && ok "容器内以 uid 1000 运行（非 root）" || bad "容器内 uid=$uid（期望 1000）"
+# docker compose 会插值 ${VAR}/$VAR：若构建期的 '$$' 转义失效，容器实际拿到的
+# 脚本会缺路径、变量变空串（应用照跑但行为错乱），所以查容器实际收到的 Cmd
+cmd=$("$DOCKER" inspect "$APPID" --format '{{json .Config.Cmd}}' 2>/dev/null)
+case "$cmd" in
+  *'CONF_DIR=/config'*'exec nginx -c'*) ok "容器实际收到的 entrypoint 脚本完整（\$ 转义未被 compose 破坏）" ;;
+  *) bad "容器收到的脚本不完整：$(printf '%s' "$cmd" | head -c 200)" ;;
+esac
 ss -tln 2>/dev/null | grep -q ":${PORT} " && ok "宿主端口 ${PORT} 已监听" || bad "宿主端口 ${PORT} 未监听"
-nc -z 127.0.0.1 8080 >/dev/null 2>&1 && bad "容器端口 8080 意外暴露在宿主上" || ok "只有映射端口对外，8080 未在宿主监听"
+# 只允许一个容器端口被发布；不用 nc（TOS 上不一定有，缺命令会误报为通过）；
+# 也不能断言宿主 8080 空闲——TOS 自己的 nginx 就监听 8080
+pub=$("$DOCKER" port "$APPID" 2>/dev/null)
+npub=$(printf '%s\n' "$pub" | grep -c '^[0-9]')
+if [ "$npub" = 2 ] && ! printf '%s\n' "$pub" | grep -v '^8080/tcp -> ' | grep -q '^[0-9]' \
+   && printf '%s\n' "$pub" | grep -q ":${PORT}$"; then
+  ok "只发布了 8080/tcp -> 宿主 ${PORT}（无多余端口）"
+else
+  bad "端口发布不符合预期：$(printf '%s' "$pub" | tr '\n' ' ')"
+fi
 
 echo
 echo "== 4/6  数据目录与生成文件 =="
@@ -82,6 +98,11 @@ done
 owner=$(stat -c '%u' "$DATA/config" 2>/dev/null)
 [ "$owner" = "1000" ] && ok "数据目录属主已交给应用用户（uid 1000）" \
                       || bad "数据目录属主 uid=$owner（期望 1000，检查 compose 的 volumes 区块是否被注释打断）"
+# 绝不允许出现字面量 /Volume* 目录（平台不展开通配符，只会把数据丢到系统分区根）；
+# 只检查本应用自己的路径——同一台机器上别的应用可能踩了这个坑
+[ -e "/Volume*/DockerAppData/${APPID}" ] \
+  && bad "出现了字面量 /Volume*/DockerAppData/${APPID}（compose 里写了 /Volume* 通配）" \
+  || ok "本应用未创建字面量 /Volume* 目录"
 
 echo
 echo "== 5/6  功能验证：用户内容 + 用户配置 + 重启持久化 =="
@@ -108,7 +129,22 @@ curl -fsS -m 5 "http://127.0.0.1:${PORT}/e2e.txt" 2>/dev/null | grep -q hello-e2
 # leave the installation exactly as a user would find it
 rm -f "$DATA/www/e2e.txt"
 sed -i '/location \/e2e\//d' "$DATA/config/locations.conf"
-"$DOCKER" restart "$APPID" >/dev/null 2>&1
+
+# 卸载/重装路径：Docker 应用不支持应用中心升级（官方 9.6.2），用户靠卸载重装，
+# 数据必须保留。这里用 compose down（= 卸载但不删数据）+ 官方 -i 重装实测。
+marker="keep-me-$$"; echo "$marker" > "$DATA/www/keep.txt"
+"$DOCKER" compose -p "$APPID" down >/dev/null 2>&1
+[ -d "$DATA" ] && [ -s "$DATA/www/keep.txt" ] \
+  && ok "卸载（compose down）后数据目录与用户文件仍保留" \
+  || bad "卸载后数据被删除"
+"$TOOL" -i "$PKG" >/dev/null 2>&1 || true
+for i in $(seq 1 15); do
+  curl -fsS -m 3 "http://127.0.0.1:${PORT}/keep.txt" 2>/dev/null | grep -q "$marker" && break
+  sleep 2
+done
+curl -fsS -m 5 "http://127.0.0.1:${PORT}/keep.txt" 2>/dev/null | grep -q "$marker" \
+  && ok "重装后用户内容保留（重装不丢数据）" || bad "重装后用户内容丢失"
+rm -f "$DATA/www/keep.txt"
 
 echo
 echo "== 6/6  结果 =="
