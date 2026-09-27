@@ -1,0 +1,36 @@
+MIT License
+
+Copyright (c) 2026 Moechz
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-------------------------------------------------------------------------------
+Third-party notices
+
+Nginx itself is Copyright (C) F5, Inc. / Igor Sysoev and is licensed under the
+BSD 2-Clause licence (https://nginx.org/LICENSE). This repository only packages
+the official nginx container image from Docker Hub (https://hub.docker.com/_/nginx)
+unmodified; no Nginx source code is distributed here. "Nginx" and the Nginx logo
+are trademarks of F5, Inc.
+
+TerraMaster, TOS and TNAS are trademarks of TerraMaster. This is an independent
+community package and is not affiliated with F5, Inc. or TerraMaster.
+
+TOSAppSelfTestingTool is an official TerraMaster utility, redistributed here
+unmodified for local package validation.

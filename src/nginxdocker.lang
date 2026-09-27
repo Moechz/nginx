@@ -1,0 +1,189 @@
+# ===========================================================================
+# Multilingual file for the TOS 7 Docker application "nginxdocker".
+# File name MUST be: <appid>.lang
+# Superset of both official 14-language lists; untranslated nodes use English.
+# ===========================================================================
+[en-us]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx is the most widely used open-source web server and reverse proxy. This app runs the official Nginx image from Docker Hub as an unprivileged container on your NAS and publishes it on port 8081. Serve your own website from the app's www folder, or add reverse proxies and extra sites as small configuration files in its config folder."
+release_note = "1. First release: the official Nginx 1.29.8 image from Docker Hub, running as a non-root user on port 8081. A default site, a welcome page and commented configuration examples are created on the first start."
+important    = "Requires DockerEngine (the App Center installs it automatically if missing). Open the app at http://<NAS-IP>:8081/. Everything is kept in the application data folder (<volume>/DockerAppData/nginxdocker): web content in 'www', sites and reverse proxies in 'config'. Only the container port 8080 is published. Validate changes with 'docker exec nginxdocker nginx -t', then restart the app. Logs: 'docker logs nginxdocker'. Back up the app data folder before uninstalling with data removal."
+
+[zh-cn]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx 是全球使用最广泛的开源 Web 服务器与反向代理。本应用在 NAS 上以非 root 容器方式运行 Docker Hub 官方 Nginx 镜像，并在 8081 端口提供服务。把网页文件放进应用的 www 目录即可发布网站；反向代理和额外站点只需在 config 目录里添加小的配置文件。"
+release_note = "1. 首次发布：Docker Hub 官方 Nginx 1.29.8 镜像，以非 root 用户运行，端口 8081。首次启动会生成默认站点、欢迎页和带注释的配置示例。"
+important    = "需要 DockerEngine（缺失时应用中心会自动提示安装）。访问地址 http://<NAS-IP>:8081/。所有文件保存在应用数据目录（<卷>/DockerAppData/nginxdocker）：网页内容放 www，站点与反向代理配置放 config。容器只映射 8080 端口。修改后用 docker exec nginxdocker nginx -t 检查，再到应用中心重启本应用。日志用 docker logs nginxdocker 查看。卸载并删除数据前请先备份应用数据目录。"
+
+[zh-hk]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx 是全球使用最廣泛的開源 Web 伺服器與反向代理。本應用在 NAS 上以非 root 容器方式執行 Docker Hub 官方 Nginx 映像，並在 8081 埠提供服務。把網頁檔案放進應用的 www 目錄即可發佈網站；反向代理與額外站點只需在 config 目錄加入小型設定檔。"
+release_note = "1. 首次發佈：Docker Hub 官方 Nginx 1.29.8 映像，以非 root 使用者執行，埠 8081。首次啟動會產生預設站點、歡迎頁與含註解的設定範例。"
+important    = "需要 DockerEngine（缺少時應用中心會自動提示安裝）。網址 http://<NAS-IP>:8081/。所有檔案保存在應用資料目錄（<卷>/DockerAppData/nginxdocker）：網頁內容放 www，站點與反向代理設定放 config。容器只映射 8080 埠。修改後用 docker exec nginxdocker nginx -t 檢查，再到應用中心重新啟動本應用。日誌用 docker logs nginxdocker 查看。卸載並刪除資料前請先備份應用資料目錄。"
+
+[fr-fr]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx est le serveur web et proxy inverse open source le plus utilisé au monde. Cette application exécute l'image officielle Nginx de Docker Hub dans un conteneur non privilégié sur votre NAS et la publie sur le port 8081. Placez votre site dans le dossier www de l'application, ou ajoutez des proxys inverses et des sites supplémentaires sous forme de petits fichiers de configuration dans son dossier config."
+release_note = "1. Première version : image officielle Nginx 1.29.8 de Docker Hub, exécutée sans privilèges root et publiée sur le port 8081. Un site par défaut, une page d'accueil et des exemples de configuration commentés sont créés au premier démarrage."
+important    = "Nécessite DockerEngine (l'App Center l'installe automatiquement si nécessaire). Ouvrez l'application sur http://<NAS-IP>:8081/. Tout est conservé dans le dossier de données (<volume>/DockerAppData/nginxdocker) : contenu web dans 'www', sites et proxys inverses dans 'config'. Seul le port 8080 du conteneur est publié. Vérifiez avec 'docker exec nginxdocker nginx -t' avant de redémarrer. Journaux : 'docker logs nginxdocker'. Sauvegardez les données avant une désinstallation avec suppression."
+
+[de-de]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx ist der am weitesten verbreitete Open-Source-Webserver und Reverse-Proxy. Diese App betreibt das offizielle Nginx-Image von Docker Hub als unprivilegierten Container auf Ihrem NAS und veröffentlicht ihn auf Port 8081. Legen Sie Ihre Website in den Ordner www der App oder fügen Sie Reverse-Proxys und weitere Sites als kleine Konfigurationsdateien im Ordner config hinzu."
+release_note = "1. Erste Version: offizielles Nginx-1.29.8-Image von Docker Hub, ausgeführt als Nicht-root-Benutzer auf Port 8081. Beim ersten Start werden eine Standard-Site, eine Willkommensseite und kommentierte Konfigurationsbeispiele erzeugt."
+important    = "Erfordert DockerEngine (das App Center installiert es bei Bedarf automatisch). Aufruf: http://<NAS-IP>:8081/. Alle Dateien liegen im App-Datenordner (<Volume>/DockerAppData/nginxdocker): Webinhalte in 'www', Sites und Reverse-Proxys in 'config'. Nur der Container-Port 8080 wird veröffentlicht. Änderungen mit 'docker exec nginxdocker nginx -t' prüfen und die App dann neu starten. Protokolle: 'docker logs nginxdocker'. Vor dem Deinstallieren mit Datenlöschung eine Sicherung anlegen."
+
+[it-it]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx è il web server e reverse proxy open source più diffuso al mondo. Questa app esegue su il tuo NAS l'immagine ufficiale Nginx di Docker Hub come container non privilegiato e la pubblica sulla porta 8081. Metti il tuo sito nella cartella www dell'app, oppure aggiungi reverse proxy e siti aggiuntivi come piccoli file di configurazione nella cartella config."
+release_note = "1. Prima versione: immagine ufficiale Nginx 1.29.8 da Docker Hub, eseguita come utente non root sulla porta 8081. Al primo avvio vengono creati un sito predefinito, una pagina di benvenuto e esempi di configurazione commentati."
+important    = "Richiede DockerEngine (l'App Center lo installa automaticamente se manca). Apri l'app su http://<NAS-IP>:8081/. Tutto è conservato nella cartella dati dell'app (<volume>/DockerAppData/nginxdocker): contenuti web in 'www', siti e reverse proxy in 'config'. Viene pubblicata solo la porta 8080 del container. Verifica le modifiche con 'docker exec nginxdocker nginx -t' e riavvia l'app. Log: 'docker logs nginxdocker'. Fai un backup della cartella dati prima di disinstallare eliminando i dati."
+
+[es-es]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx es el servidor web y proxy inverso de código abierto más utilizado del mundo. Esta aplicación ejecuta la imagen oficial de Nginx de Docker Hub como contenedor sin privilegios en tu NAS y la publica en el puerto 8081. Coloca tu sitio web en la carpeta www de la aplicación, o añade proxies inversos y sitios adicionales como pequeños archivos de configuración en su carpeta config."
+release_note = "1. Primera versión: imagen oficial Nginx 1.29.8 de Docker Hub, ejecutada como usuario no root en el puerto 8081. En el primer arranque se crean un sitio predeterminado, una página de bienvenida y ejemplos de configuración comentados."
+important    = "Requiere DockerEngine (el App Center lo instala automáticamente si falta). Abre la aplicación en http://<NAS-IP>:8081/. Todo se guarda en la carpeta de datos (<volumen>/DockerAppData/nginxdocker): contenido web en 'www', sitios y proxies inversos en 'config'. Solo se publica el puerto 8080 del contenedor. Comprueba con 'docker exec nginxdocker nginx -t' y reinicia la aplicación. Registros: 'docker logs nginxdocker'. Haz una copia antes de desinstalar eliminando datos."
+
+[hu-hu]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Az Nginx a világ legelterjedtebb nyílt forráskódú webszervere és fordított proxyja. Ez az alkalmazás a Docker Hub hivatalos Nginx image-ét futtatja nem root konténerként a NAS-on, és a 8081-es porton teszi elérhetővé. Helyezze a webhelyét az alkalmazás www mappájába, vagy adjon hozzá fordított proxykat és további oldalakat kis konfigurációs fájlokként a config mappában."
+release_note = "1. Első kiadás: a Docker Hub hivatalos Nginx 1.29.8 image-e, nem root felhasználóként, a 8081-es porton. Az első indításkor létrejön egy alapértelmezett oldal, egy üdvözlő lap és megjegyzésekkel ellátott konfigurációs példák."
+important    = "DockerEngine szükséges (hiány esetén az App Center telepíti). Az alkalmazás: http://<NAS-IP>:8081/. Minden fájl az adatmappában (<kötet>/DockerAppData/nginxdocker) van: webtartalom a 'www', oldalak és proxyk a 'config' mappában. Csak a konténer 8080-as portja érhető el. Ellenőrizze a 'docker exec nginxdocker nginx -t' paranccsal, majd indítsa újra. Naplók: 'docker logs nginxdocker'. Adattörlés előtt készítsen mentést."
+
+[ja-jp]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx は世界で最も広く使われているオープンソースの Web サーバー兼リバースプロキシです。本アプリは Docker Hub 公式の Nginx イメージを NAS 上で非 root コンテナとして実行し、ポート 8081 で公開します。アプリの www フォルダーに Web サイトを置くか、config フォルダーに小さな設定ファイルを追加してリバースプロキシや追加サイトを構成できます。"
+release_note = "1. 初回リリース：Docker Hub 公式 Nginx 1.29.8 イメージを非 root ユーザーで実行し、ポート 8081 で公開。初回起動時に既定サイト、ウェルカムページ、コメント付き設定例を生成します。"
+important    = "DockerEngine が必要です（未導入の場合はアプリセンターが自動で案内します）。アクセス先は http://<NAS-IP>:8081/ です。ファイルはすべてアプリデータフォルダー（<ボリューム>/DockerAppData/nginxdocker）に保存されます。Web コンテンツは www、サイトとリバースプロキシの設定は config に置きます。公開されるのはコンテナの 8080 ポートのみです。変更後は docker exec nginxdocker nginx -t で確認し、アプリセンターから再起動してください。ログは docker logs nginxdocker で確認できます。データ削除を伴うアンインストールの前にバックアップを取ってください。"
+
+[ko-kr]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx는 가장 널리 쓰이는 오픈 소스 웹 서버이자 리버스 프록시입니다. 이 앱은 Docker Hub 공식 Nginx 이미지를 NAS에서 비 root 컨테이너로 실행하고 8081 포트로 공개합니다. 앱의 www 폴더에 웹 사이트를 넣거나 config 폴더에 작은 설정 파일을 추가해 리버스 프록시와 추가 사이트를 구성할 수 있습니다."
+release_note = "1. 최초 릴리스: Docker Hub 공식 Nginx 1.29.8 이미지를 비 root 사용자로 실행하고 8081 포트로 공개합니다. 첫 시작 시 기본 사이트, 환영 페이지, 주석이 포함된 설정 예제가 생성됩니다."
+important    = "DockerEngine이 필요합니다(없으면 앱 센터가 자동으로 안내합니다). 접속 주소는 http://<NAS-IP>:8081/ 입니다. 모든 파일은 앱 데이터 폴더(<볼륨>/DockerAppData/nginxdocker)에 저장됩니다. 웹 콘텐츠는 www, 사이트와 리버스 프록시 설정은 config에 넣습니다. 공개되는 포트는 컨테이너의 8080뿐입니다. 변경 후 docker exec nginxdocker nginx -t 로 확인하고 앱 센터에서 재시작하세요. 로그는 docker logs nginxdocker 로 확인합니다. 데이터 삭제와 함께 제거하기 전에 백업하세요."
+
+[pl-pl]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx to najczęściej używany open source'owy serwer WWW i odwrotne proxy. Ta aplikacja uruchamia oficjalny obraz Nginx z Docker Hub jako nieuprzywilejowany kontener na NAS-ie i publikuje go na porcie 8081. Umieść swoją stronę w folderze www aplikacji lub dodaj odwrotne proxy i dodatkowe witryny jako małe pliki konfiguracyjne w folderze config."
+release_note = "1. Pierwsze wydanie: oficjalny obraz Nginx 1.29.8 z Docker Hub, uruchamiany jako użytkownik inny niż root, port 8081. Przy pierwszym starcie tworzona jest domyślna witryna, strona powitalna i komentowane przykłady konfiguracji."
+important    = "Wymaga DockerEngine (App Center zainstaluje go automatycznie, jeśli brakuje). Otwórz aplikację pod http://<NAS-IP>:8081/. Wszystko jest przechowywane w folderze danych aplikacji (<wolumin>/DockerAppData/nginxdocker): treści WWW w 'www', witryny i odwrotne proxy w 'config'. Publikowany jest tylko port 8080 kontenera. Sprawdź zmiany poleceniem 'docker exec nginxdocker nginx -t' i uruchom aplikację ponownie. Dzienniki: 'docker logs nginxdocker'. Przed odinstalowaniem z usunięciem danych wykonaj kopię zapasową."
+
+[ru-ru]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx — самый распространённый веб-сервер и обратный прокси с открытым исходным кодом. Это приложение запускает официальный образ Nginx из Docker Hub как непривилегированный контейнер на вашем NAS и публикует его на порту 8081. Разместите свой сайт в папке www приложения или добавьте обратные прокси и дополнительные сайты небольшими файлами конфигурации в папке config."
+release_note = "1. Первый выпуск: официальный образ Nginx 1.29.8 из Docker Hub, запуск от непривилегированного пользователя, порт 8081. При первом запуске создаются сайт по умолчанию, приветственная страница и примеры конфигурации с комментариями."
+important    = "Требуется DockerEngine (App Center установит его автоматически при отсутствии). Адрес: http://<NAS-IP>:8081/. Все файлы хранятся в папке данных приложения (<том>/DockerAppData/nginxdocker): веб-содержимое в 'www', сайты и обратные прокси в 'config'. Публикуется только порт 8080 контейнера. Проверяйте изменения командой 'docker exec nginxdocker nginx -t' и затем перезапускайте приложение. Журналы: 'docker logs nginxdocker'. Перед удалением с очисткой данных сделайте резервную копию."
+
+[tr-tr]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx, dünyada en yaygın kullanılan açık kaynak web sunucusu ve ters vekil sunucudur. Bu uygulama Docker Hub'daki resmi Nginx imajını NAS'ınızda ayrıcalıksız bir kapsayıcı olarak çalıştırır ve 8081 portunda yayınlar. Sitenizi uygulamanın www klasörüne koyun veya config klasörüne küçük yapılandırma dosyaları ekleyerek ters vekil sunucular ve ek siteler tanımlayın."
+release_note = "1. İlk sürüm: Docker Hub resmi Nginx 1.29.8 imajı, root olmayan kullanıcıyla çalışır ve 8081 portunda yayınlanır. İlk başlatmada varsayılan site, karşılama sayfası ve açıklamalı yapılandırma örnekleri oluşturulur."
+important    = "DockerEngine gerekir (eksikse App Center otomatik olarak kurar). Uygulamayı http://<NAS-IP>:8081/ adresinden açın. Her şey uygulama veri klasöründe (<birim>/DockerAppData/nginxdocker) saklanır: web içeriği 'www', site ve ters vekil yapılandırmaları 'config'. Yalnızca kapsayıcının 8080 portu yayınlanır. Değişiklikleri 'docker exec nginxdocker nginx -t' ile doğrulayıp uygulamayı yeniden başlatın. Günlükler: 'docker logs nginxdocker'. Verileri silerek kaldırmadan önce yedek alın."
+
+[pt-pt]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "O Nginx é o servidor web e proxy inverso de código aberto mais utilizado do mundo. Esta aplicação executa a imagem oficial do Nginx do Docker Hub como contentor sem privilégios no seu NAS e publica-a na porta 8081. Coloque o seu site na pasta www da aplicação ou adicione proxies inversos e sites adicionais como pequenos ficheiros de configuração na pasta config."
+release_note = "1. Primeira versão: imagem oficial Nginx 1.29.8 do Docker Hub, executada como utilizador não root na porta 8081. No primeiro arranque são criados um site predefinido, uma página de boas-vindas e exemplos de configuração comentados."
+important    = "Requer o DockerEngine (o App Center instala-o automaticamente se faltar). Abra a aplicação em http://<NAS-IP>:8081/. Tudo é guardado na pasta de dados da aplicação (<volume>/DockerAppData/nginxdocker): conteúdo web em 'www', sites e proxies inversos em 'config'. Apenas a porta 8080 do contentor é publicada. Valide as alterações com 'docker exec nginxdocker nginx -t' e reinicie a aplicação. Registos: 'docker logs nginxdocker'. Faça uma cópia de segurança antes de desinstalar com eliminação de dados."
+
+[ar-sa]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx هو أكثر خوادم الويب والوكيل العكسي مفتوح المصدر استخدامًا في العالم. يشغّل هذا التطبيق صورة Nginx الرسمية من Docker Hub كحاوية بدون صلاحيات root على خادم NAS وينشرها على المنفذ 8081. ضع موقعك في مجلد www الخاص بالتطبيق، أو أضف وكلاء عكسيين ومواقع إضافية كملفات تهيئة صغيرة في مجلد config."
+release_note = "1. الإصدار الأول: صورة Nginx 1.29.8 الرسمية من Docker Hub، تعمل بمستخدم غير root على المنفذ 8081. يتم إنشاء موقع افتراضي وصفحة ترحيب وأمثلة تهيئة مشروحة عند أول تشغيل."
+important    = "يتطلب DockerEngine (يثبّته App Center تلقائيًا عند غيابه). افتح التطبيق على http://<NAS-IP>:8081/. تُحفظ كل الملفات في مجلد بيانات التطبيق (<volume>/DockerAppData/nginxdocker): محتوى الويب في 'www' والمواقع والوكلاء العكسيون في 'config'. يتم نشر منفذ الحاوية 8080 فقط. تحقق من التغييرات بالأمر 'docker exec nginxdocker nginx -t' ثم أعد تشغيل التطبيق. السجلات: 'docker logs nginxdocker'. خذ نسخة احتياطية قبل الإزالة مع حذف البيانات."
+
+[cs-cz]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx je nejrozšířenější open source webový server a reverzní proxy. Tato aplikace spouští oficiální image Nginx z Docker Hubu jako neprivilegovaný kontejner na vašem NAS a publikuje jej na portu 8081. Umístěte svůj web do složky www aplikace nebo přidejte reverzní proxy a další weby jako malé konfigurační soubory do složky config."
+release_note = "1. První vydání: oficiální image Nginx 1.29.8 z Docker Hubu, běží jako uživatel bez root oprávnění na portu 8081. Při prvním spuštění se vytvoří výchozí web, uvítací stránka a komentované příklady konfigurace."
+important    = "Vyžaduje DockerEngine (App Center jej v případě potřeby nainstaluje automaticky). Aplikaci otevřete na http://<NAS-IP>:8081/. Vše je uloženo ve složce dat aplikace (<svazek>/DockerAppData/nginxdocker): webový obsah v 'www', weby a reverzní proxy v 'config'. Publikován je pouze port 8080 kontejneru. Změny ověřte příkazem 'docker exec nginxdocker nginx -t' a aplikaci restartujte. Protokoly: 'docker logs nginxdocker'. Před odinstalací s odstraněním dat vytvořte zálohu."
+
+[he-il]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx הוא שרת האינטרנט והפרוקסי ההפוך בקוד פתוח הנפוץ בעולם. אפליקציה זו מריצה את תמונת Nginx הרשמית מ-Docker Hub כמכל ללא הרשאות root ב-NAS שלך ומפרסמת אותה בפורט 8081. שים את האתר שלך בתיקיית www של האפליקציה, או הוסף פרוקסי הפוך ואתרים נוספים כקבצי תצורה קטנים בתיקיית config."
+release_note = "1. מהדורה ראשונה: תמונת Nginx 1.29.8 הרשמית מ-Docker Hub, פועלת כמשתמש שאינו root בפורט 8081. בהפעלה הראשונה נוצרים אתר ברירת מחדל, עמוד ברכה ודוגמאות תצורה עם הערות."
+important    = "דורש DockerEngine (מרכז האפליקציות מתקין אותו אוטומטית אם הוא חסר). פתח את האפליקציה בכתובת http://<NAS-IP>:8081/. כל הקבצים נשמרים בתיקיית הנתונים של האפליקציה (<volume>/DockerAppData/nginxdocker): תוכן האינטרנט ב-'www', ואתרים ופרוקסי הפוך ב-'config'. רק פורט 8080 של המכל מפורסם. אמת שינויים עם 'docker exec nginxdocker nginx -t' ואז הפעל מחדש את האפליקציה. יומנים: 'docker logs nginxdocker'. גבה את תיקיית הנתונים לפני הסרה עם מחיקת נתונים."
+
+[id-id]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx adalah server web dan reverse proxy open source yang paling banyak digunakan di dunia. Aplikasi ini menjalankan image Nginx resmi dari Docker Hub sebagai kontainer tanpa hak istimewa di NAS Anda dan mempublikasikannya di port 8081. Letakkan situs Anda di folder www aplikasi, atau tambahkan reverse proxy dan situs tambahan sebagai berkas konfigurasi kecil di folder config."
+release_note = "1. Rilis pertama: image resmi Nginx 1.29.8 dari Docker Hub, dijalankan sebagai pengguna non-root di port 8081. Saat pertama dijalankan, dibuat situs default, halaman selamat datang, dan contoh konfigurasi berkomentar."
+important    = "Memerlukan DockerEngine (App Center akan memasangnya otomatis bila belum ada). Buka aplikasi di http://<NAS-IP>:8081/. Semua berkas disimpan di folder data aplikasi (<volume>/DockerAppData/nginxdocker): konten web di 'www', situs dan reverse proxy di 'config'. Hanya port 8080 kontainer yang dipublikasikan. Periksa perubahan dengan 'docker exec nginxdocker nginx -t' lalu mulai ulang aplikasi. Log: 'docker logs nginxdocker'. Cadangkan folder data sebelum menghapus instalasi beserta datanya."
+
+[nb-no]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx er den mest brukte åpen kildekode-nettjeneren og omvendte proxyen i verden. Denne appen kjører det offisielle Nginx-imageet fra Docker Hub som en uprivilegert beholder på NAS-en din og publiserer den på port 8081. Legg nettstedet ditt i appens www-mappe, eller legg til omvendte proxyer og flere nettsteder som små konfigurasjonsfiler i config-mappen."
+release_note = "1. Første utgivelse: det offisielle Nginx 1.29.8-imageet fra Docker Hub, kjørt som en ikke-root-bruker på port 8081. Ved første start opprettes et standardnettsted, en velkomstside og kommenterte konfigurasjonseksempler."
+important    = "Krever DockerEngine (App Center installerer det automatisk hvis det mangler). Åpne appen på http://<NAS-IP>:8081/. Alt lagres i appens datamappe (<volum>/DockerAppData/nginxdocker): webinnhold i 'www', nettsteder og omvendte proxyer i 'config'. Bare beholderens port 8080 publiseres. Kontroller endringer med 'docker exec nginxdocker nginx -t' og start appen på nytt. Logger: 'docker logs nginxdocker'. Ta sikkerhetskopi før avinstallering med sletting av data."
+
+[nl-nl]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx is 's werelds meest gebruikte opensource-webserver en reverse proxy. Deze app draait de officiële Nginx-image van Docker Hub als niet-geprivilegieerde container op je NAS en publiceert die op poort 8081. Zet je website in de www-map van de app, of voeg reverse proxies en extra sites toe als kleine configuratiebestanden in de config-map."
+release_note = "1. Eerste release: de officiële Nginx 1.29.8-image van Docker Hub, uitgevoerd als niet-rootgebruiker op poort 8081. Bij de eerste start worden een standaardsite, een welkomstpagina en van commentaar voorziene configuratievoorbeelden aangemaakt."
+important    = "Vereist DockerEngine (het App Center installeert dit automatisch indien nodig). Open de app op http://<NAS-IP>:8081/. Alles staat in de app-gegevensmap (<volume>/DockerAppData/nginxdocker): webinhoud in 'www', sites en reverse proxies in 'config'. Alleen containerpoort 8080 wordt gepubliceerd. Controleer wijzigingen met 'docker exec nginxdocker nginx -t' en herstart de app. Logs: 'docker logs nginxdocker'. Maak een back-up voordat je verwijdert met gegevensverwijdering."
+
+[sv-se]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx är världens mest använda webbserver och omvända proxy med öppen källkod. Den här appen kör den officiella Nginx-avbildningen från Docker Hub som en oprivilegierad container på din NAS och publicerar den på port 8081. Lägg din webbplats i appens www-mapp, eller lägg till omvända proxyservrar och fler webbplatser som små konfigurationsfiler i config-mappen."
+release_note = "1. Första utgåvan: den officiella Nginx 1.29.8-avbildningen från Docker Hub, körd som icke-root-användare på port 8081. Vid första starten skapas en standardsajt, en välkomstsida och kommenterade konfigurationsexempel."
+important    = "Kräver DockerEngine (App Center installerar det automatiskt om det saknas). Öppna appen på http://<NAS-IP>:8081/. Allt sparas i appens datamapp (<volym>/DockerAppData/nginxdocker): webbinnehåll i 'www', sajter och omvända proxyservrar i 'config'. Endast containerns port 8080 publiceras. Kontrollera ändringar med 'docker exec nginxdocker nginx -t' och starta om appen. Loggar: 'docker logs nginxdocker'. Säkerhetskopiera innan avinstallation med data­radering."
+
+[th-th]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx เป็นเว็บเซิร์ฟเวอร์และรีเวิร์สพร็อกซีโอเพนซอร์สที่ใช้กันแพร่หลายที่สุดในโลก แอปนี้รันอิมเมจ Nginx อย่างเป็นทางการจาก Docker Hub เป็นคอนเทนเนอร์แบบไม่ใช้ root บน NAS ของคุณ และเปิดให้ใช้ที่พอร์ต 8081 วางเว็บไซต์ของคุณในโฟลเดอร์ www ของแอป หรือเพิ่มรีเวิร์สพร็อกซีและเว็บไซต์เพิ่มเติมเป็นไฟล์กำหนดค่าเล็ก ๆ ในโฟลเดอร์ config"
+release_note = "1. เวอร์ชันแรก: อิมเมจ Nginx 1.29.8 อย่างเป็นทางการจาก Docker Hub ทำงานด้วยผู้ใช้ที่ไม่ใช่ root ที่พอร์ต 8081 ในการเริ่มครั้งแรกจะสร้างเว็บไซต์เริ่มต้น หน้าต้อนรับ และตัวอย่างการกำหนดค่าที่มีคำอธิบาย"
+important    = "ต้องมี DockerEngine (App Center จะติดตั้งให้อัตโนมัติหากไม่มี) เปิดแอปที่ http://<NAS-IP>:8081/ ไฟล์ทั้งหมดเก็บไว้ในโฟลเดอร์ข้อมูลของแอป (<volume>/DockerAppData/nginxdocker) เนื้อหาเว็บอยู่ใน 'www' ส่วนเว็บไซต์และรีเวิร์สพร็อกซีอยู่ใน 'config' เปิดพอร์ตเฉพาะ 8080 ของคอนเทนเนอร์ ตรวจสอบการแก้ไขด้วย 'docker exec nginxdocker nginx -t' แล้วรีสตาร์ตแอป ดูบันทึกด้วย 'docker logs nginxdocker' สำรองข้อมูลก่อนถอนการติดตั้งแบบลบข้อมูล"
+
+[vi-vn]
+name         = "Nginx Web Server"
+auth         = "Nginx, Inc."
+version      = "@@VERSION@@"
+descript     = "Nginx là máy chủ web và proxy ngược mã nguồn mở được dùng rộng rãi nhất thế giới. Ứng dụng này chạy image Nginx chính thức từ Docker Hub dưới dạng container không đặc quyền trên NAS của bạn và công bố ở cổng 8081. Hãy đặt website của bạn vào thư mục www của ứng dụng, hoặc thêm proxy ngược và các site khác dưới dạng tệp cấu hình nhỏ trong thư mục config."
+release_note = "1. Bản phát hành đầu tiên: image Nginx 1.29.8 chính thức từ Docker Hub, chạy bằng người dùng không phải root ở cổng 8081. Lần khởi động đầu tiên sẽ tạo site mặc định, trang chào mừng và các ví dụ cấu hình có chú thích."
+important    = "Cần DockerEngine (App Center sẽ tự cài nếu thiếu). Mở ứng dụng tại http://<NAS-IP>:8081/. Mọi tệp được lưu trong thư mục dữ liệu ứng dụng (<volume>/DockerAppData/nginxdocker): nội dung web trong 'www', site và proxy ngược trong 'config'. Chỉ cổng 8080 của container được công bố. Kiểm tra thay đổi bằng 'docker exec nginxdocker nginx -t' rồi khởi động lại ứng dụng. Nhật ký: 'docker logs nginxdocker'. Sao lưu thư mục dữ liệu trước khi gỡ cài đặt kèm xóa dữ liệu."
+

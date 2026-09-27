@@ -1,0 +1,71 @@
+# ===========================================================================
+# Nginx Web Server for TerraMaster TOS 7 (Docker application)
+# ===========================================================================
+# Upstream image : nginx (Docker Hub *official* image), fixed tag 1.29.8, the
+#                  alpine variant. Used unmodified.
+#                  -> https://hub.docker.com/_/nginx
+#
+# Why there is a wrapper: the official image is built to run as root and keeps
+# everything in root-owned /etc/nginx. TOS requires every container to run as a
+# non-root user (the "user" field; running as root is a one-vote-veto item) and
+# keeps application data in bind mounts, so the entrypoint below
+#
+#   * builds a complete nginx.conf that the unprivileged user can use
+#     (own pid file, writable request-body/proxy temp paths, logs to stdout),
+#   * seeds a default site, a welcome page and a short README into the mounted
+#     application data directory on first start, and
+#   * refuses to start with a broken configuration, so the application cannot
+#     end up in a restart loop.
+#
+# Ports   : the host port 8081 is in the TOS-recommended 8000-19999 range and
+#           is none of the reserved ports (22/80/443/445/3306/5050/5432/6379/
+#           8181/8443). Inside the container nginx listens on 8080.
+# Volumes : all persistent data lives below /Volume1/DockerAppData/nginxdocker/
+#           (config = generated configuration, www = served files). The
+#           /Volume* wildcard is deliberately NOT used: the platform does not
+#           expand it, it only creates a literal /Volume* directory.
+# TOS rules honoured: Docker Hub image with a fixed tag (never ":latest"),
+#           container_name == application id, restart: unless-stopped,
+#           non-root user, no privileged mode, no network_mode: host, no
+#           cap_add, explicit TZ, a healthcheck on the only service, and
+#           x-app-meta as the last block.
+# Escaping: docker compose interpolates ${VAR}/$VAR in compose files, so every
+#           '$' inside the inline script is written '$$' by scripts/build.sh.
+#
+# NOTE for maintainers: never place a comment line directly in front of a
+# "- value" sequence item (ports, volumes, ...). The official
+# TOSAppSelfTestingTool parses the compose file line by line; a comment inside
+# a sequence makes it skip its permission sync, the mounted directories stay
+# root-owned and the non-root container cannot write into them. Keep list
+# blocks comment-free - see D-006 in docs/DESIGN_DECISIONS.md.
+
+services:
+  nginxdocker:
+    image: nginx:1.29.8-alpine
+    container_name: nginxdocker
+    restart: unless-stopped
+    user: "1000:1000"
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        @@ENTRYPOINT_SH@@
+    ports:
+      - "8081:8080"
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /Volume1/DockerAppData/nginxdocker/config:/config
+      - /Volume1/DockerAppData/nginxdocker/www:/www
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s -o /dev/null http://127.0.0.1:8080/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+# TOS App Center web metadata (must be the last block of the file):
+# web.port is the published host port above, protocol is http.
+x-app-meta:
+  web:
+    port: 8081
+    protocol: http
