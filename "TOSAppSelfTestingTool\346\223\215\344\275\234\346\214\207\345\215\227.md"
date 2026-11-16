@@ -1,5 +1,9 @@
 # TOSAppSelfTestingTool 调用操作指南
 
+> ⚠️ **本文件对应已过时的 v1.0.0（单个 3 MB 二进制），仅作历史参考。**
+> 当前版本为 **v1.0.2**（双架构 + 规则级报告），规范位置：**`/Volume1/projects/TOSAppSelfTestingTool/`**
+> —— 见 `USAGE.md` / `USAGE.en.md` / `VERSION`，以及 `TOS-DEB-PACKAGING-GUIDE.md` **坑 82**。
+
 - 版本：v1.0.0
 - 适用设备：TOS（NAS，已安装 DockerEngine）
 - 工具定位：应用包自测工具 —— 对 deb / docker 应用包做规范检测，并可将 docker 应用包直接安装到设备上验证
